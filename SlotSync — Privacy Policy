@@ -1,0 +1,48 @@
+# SlotSync — Privacy Policy
+
+**Last updated: April 2026**
+
+## Overview
+
+SlotSync is a Chrome extension that helps you find mutually free time with colleagues and schedule meetings. This policy explains how the extension handles your data.
+
+## Data collection
+
+SlotSync does **not** collect, store, transmit or share any personal data with third parties.
+
+## How it works
+
+- You sign in with your Google account using OAuth2
+- SlotSync queries Google's Calendar Freebusy API to check when you and your colleagues are free — it receives only free/busy blocks, not the titles or details of individual events
+- Meeting events are created directly in your Google Calendar via the Calendar API
+- Contact suggestions are fetched from your Google Contacts and your organisation's directory
+- Your Zoom personal room URL (if saved) is stored locally in `chrome.storage.local` and never leaves your device
+- No data is sent to any external server other than Google's own APIs
+
+## Permissions
+
+| Permission | Reason |
+|---|---|
+| `identity` | To authenticate with Google via OAuth2 |
+| `storage` | To store your Zoom URL and OAuth token locally |
+| `sidePanel` | To display SlotSync as a browser side panel |
+
+## Google API access
+
+SlotSync requests the following Google OAuth scopes:
+
+| Scope | Reason |
+|---|---|
+| `calendar.readonly` | To read your own calendar for availability checking |
+| `calendar.events` | To create new meeting events in your calendar |
+| `calendar.freebusy` | To check free/busy blocks for you and colleagues |
+| `contacts.readonly` | To suggest colleagues from your personal contacts |
+| `directory.readonly` | To suggest colleagues from your organisation's directory |
+
+## Revoking access
+
+Sign out at any time using the Sign out button. To fully revoke access, visit [myaccount.google.com/permissions](https://myaccount.google.com/permissions) and remove SlotSync.
+
+## Contact
+
+SlotSync is an internal tool built by the IT team at the Ellen MacArthur Foundation. For questions contact [it@ellenmacarthurfoundation.org](mailto:it@ellenmacarthurfoundation.org).
