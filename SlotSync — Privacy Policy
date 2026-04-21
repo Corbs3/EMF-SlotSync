@@ -1,48 +1,53 @@
-# SlotSync — Privacy Policy
+# Privacy Policy — SlotSync
 
 **Last updated: April 2026**
 
 ## Overview
 
-SlotSync is a Chrome extension that helps you find mutually free time with colleagues and schedule meetings. This policy explains how the extension handles your data.
+SlotSync is a Chrome extension that connects to Google Calendar to help you find available meeting times and schedule meetings with colleagues. This policy explains how the extension handles your data.
 
-## Data collection
+## Data Collected
 
-SlotSync does **not** collect, store, transmit or share any personal data with third parties.
+SlotSync stores the following data **locally in your browser only**:
 
-## How it works
+- Your Google OAuth access token (used to authenticate API requests, expires automatically)
+- Your Zoom room URL and any additional Zoom room URLs you add
+- Your Assistant Mode preference
+- Free/busy calendar data retrieved during availability checks is used only to render the availability grid and is never stored
 
-- You sign in with your Google account using OAuth2
-- SlotSync queries Google's Calendar Freebusy API to check when you and your colleagues are free — it receives only free/busy blocks, not the titles or details of individual events
-- Meeting events are created directly in your Google Calendar via the Calendar API
-- Contact suggestions are fetched from your Google Contacts and your organisation's directory
-- Your Zoom personal room URL (if saved) is stored locally in `chrome.storage.local` and never leaves your device
-- No data is sent to any external server other than Google's own APIs
+No calendar event content, email body text, or personal data beyond the above is stored.
+
+## Google API Access
+
+SlotSync requests access to the following Google APIs when you sign in:
+
+- **Google Calendar** - to read free/busy data and create calendar events on your behalf
+- **Google People / Directory** - to search for colleague names and email addresses for the autocomplete feature
+
+This data is used only within the extension to provide its core functionality. It is never transmitted to any third-party server.
+
+## Data Storage
+
+All data is stored using Chrome's `storage.local` API. It never leaves your browser and is not accessible to any website or third party.
+
+## Data Sharing
+
+No data is collected, transmitted, or shared with any external server, service, or third party beyond the Google APIs listed above, which are accessed directly from your browser using your own OAuth credentials.
+
+## Sign Out
+
+You can sign out at any time using the Sign out button. This clears your stored token from local storage immediately.
 
 ## Permissions
 
-| Permission | Reason |
-|---|---|
-| `identity` | To authenticate with Google via OAuth2 |
-| `storage` | To store your Zoom URL and OAuth token locally |
-| `sidePanel` | To display SlotSync as a browser side panel |
+- **identity** - used to handle the Google OAuth sign-in flow
+- **storage** - used to save your settings and auth token locally
+- **sidePanel** - used to display the extension in Chrome's side panel
 
-## Google API access
+## Changes to This Policy
 
-SlotSync requests the following Google OAuth scopes:
-
-| Scope | Reason |
-|---|---|
-| `calendar.readonly` | To read your own calendar for availability checking |
-| `calendar.events` | To create new meeting events in your calendar |
-| `calendar.freebusy` | To check free/busy blocks for you and colleagues |
-| `contacts.readonly` | To suggest colleagues from your personal contacts |
-| `directory.readonly` | To suggest colleagues from your organisation's directory |
-
-## Revoking access
-
-Sign out at any time using the Sign out button. To fully revoke access, visit [myaccount.google.com/permissions](https://myaccount.google.com/permissions) and remove SlotSync.
+This policy may be updated occasionally. The latest version will always be available at this URL.
 
 ## Contact
 
-SlotSync is an internal tool built by the IT team at the Ellen MacArthur Foundation. For questions contact [it@ellenmacarthurfoundation.org](mailto:it@ellenmacarthurfoundation.org).
+For questions about this extension, open an issue on the GitHub repository.
