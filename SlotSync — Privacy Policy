@@ -1,53 +1,71 @@
-# Privacy Policy — SlotSync
+# SlotSync — Privacy Policy
 
 **Last updated: April 2026**
 
 ## Overview
 
-SlotSync is a Chrome extension that connects to Google Calendar to help you find available meeting times and schedule meetings with colleagues. This policy explains how the extension handles your data.
+SlotSync is a Chrome extension that helps you organise colleagues into groups, view their availability, and schedule meetings. This policy explains what data the extension accesses, how it is used, and what is stored.
 
-## Data Collected
+---
 
-SlotSync stores the following data **locally in your browser only**:
+## Data accessed
 
-- Your Google OAuth access token (used to authenticate API requests, expires automatically)
-- Your Zoom room URL and any additional Zoom room URLs you add
-- Your Assistant Mode preference
-- Free/busy calendar data retrieved during availability checks is used only to render the availability grid and is never stored
+SlotSync requests access to the following Google APIs via OAuth 2.0:
 
-No calendar event content, email body text, or personal data beyond the above is stored.
+| API | Purpose |
+|-----|---------|
+| Google Calendar (read/write) | Display free/busy availability; create calendar events and send invites |
+| Google Calendar List (read/write) | Show or hide group members' calendars in Google Calendar |
+| Google Admin Directory (read-only) | Search your organisation's directory when adding members to a group or scheduling a meeting |
 
-## Google API Access
+---
 
-SlotSync requests access to the following Google APIs when you sign in:
+## Data storage
 
-- **Google Calendar** - to read free/busy data and create calendar events on your behalf
-- **Google People / Directory** - to search for colleague names and email addresses for the autocomplete feature
+SlotSync stores the following data **locally in your browser** using `chrome.storage.local`:
 
-This data is used only within the extension to provide its core functionality. It is never transmitted to any third-party server.
+- **Groups** — names, colours, and member email addresses you have defined
+- **Settings** — your Zoom room URL(s), assistant mode preference, and other preferences you configure
+- **Auth token** — a short-lived Google OAuth access token, stored temporarily to avoid repeated sign-in prompts
 
-## Data Storage
+**No data is transmitted to any server operated by the extension developer.** All API calls go directly from your browser to Google's servers.
 
-All data is stored using Chrome's `storage.local` API. It never leaves your browser and is not accessible to any website or third party.
+---
 
-## Data Sharing
+## What we do not do
 
-No data is collected, transmitted, or shared with any external server, service, or third party beyond the Google APIs listed above, which are accessed directly from your browser using your own OAuth credentials.
+- We do not collect, store, or transmit your calendar events, email content, or any personal data to third-party servers
+- We do not use analytics or tracking tools
+- We do not sell or share any data with third parties
+- We do not access any Google APIs beyond those listed above
 
-## Sign Out
+---
 
-You can sign out at any time using the Sign out button. This clears your stored token from local storage immediately.
+## Permissions explained
 
-## Permissions
+| Permission | Reason |
+|------------|--------|
+| `identity` | Authenticate you with Google via OAuth 2.0 |
+| `storage` | Save your groups and preferences locally in your browser |
+| `sidePanel` | Open SlotSync as a Chrome side panel |
+| `tabs` | Open or refresh Google Calendar when you toggle a group's calendar visibility |
 
-- **identity** - used to handle the Google OAuth sign-in flow
-- **storage** - used to save your settings and auth token locally
-- **sidePanel** - used to display the extension in Chrome's side panel
+---
 
-## Changes to This Policy
+## Sign-out and data deletion
 
-This policy may be updated occasionally. The latest version will always be available at this URL.
+Clicking **Sign out** in SlotSync settings revokes your OAuth token with Google and clears all locally stored data (token, groups, and settings).
+
+You can also clear all extension data manually via Chrome's extension storage controls or by removing the extension entirely.
+
+---
+
+## Changes to this policy
+
+If this policy changes materially, the extension version number will be updated and the Last Updated date above will be revised.
+
+---
 
 ## Contact
 
-For questions about this extension, open an issue on the GitHub repository.
+For questions about this privacy policy, please raise an issue on the GitHub repository where this policy is hosted.
